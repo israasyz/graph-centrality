@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+ int n, m, u, v, w;
+ int **matrix; //adjacency matrix
+ int *degree;
+ int node_edges=0; //no. of edges per node
+
+ cin>>n>>m;
+ 
+ matrix = new int*[n];
+ degree = new int [n];
+ 
+ for(int i=0; i<n;i++)
+ {
+  matrix[i] = new int [n];
+  for (int j=0; j<n;j++)
+  {
+    matrix[i][j]=0;
+  }
+ } 
+                                                                                                                 
+ for (int i=0; i<m; i++)
+ {  
+    cin>>u>>v>>w;
+    matrix[u][v]=w;
+    matrix[v][u]=w;
+ }
+ 
+for(int i=0; i<n;i++)
+{
+  for (int j=0; j<n;j++)
+  {
+    if(matrix[i][j]!=0)
+     node_edges++;
+  }
+  degree[i]=node_edges;
+  node_edges=0;
+}  
+ 
+for (int i=0; i<n; i++)
+{  
+    cout<<degree[i]<<endl;
+} 
+ 
+ 
+}
