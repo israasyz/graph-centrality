@@ -10,10 +10,11 @@ n = res[0]
 m = res[1]
 G = nx.Graph()
 color_map = []
+node_sizes = []
 input = input('For Degree Centrality enter "d"\nFor Betweenness Centrality enter "b"\nFor Closeness Centrality enter "c":')
 
 for i in range(n):
-    G.add_node(i, pos=(i, 2*i*i))
+    G.add_node(i, pos=(i, 2*i*i*i))
 with open('myfile.txt', 'r') as myfile:
     for line in islice(myfile, 1, None):
         result = [int(k) for k in line.split() if k.isdigit()]
@@ -30,7 +31,11 @@ if input == 'd':
     for node in G:
         if deg_cen[node] == x:
             color_map.append('blue')
-        else: color_map.append('red')
+            node_sizes.append(750)
+        else:
+            color_map.append('red')
+            node_sizes.append(250)
+
 
 if input == 'b':
     bet_cen = nx.betweenness_centrality(G, weight="weight", normalized=False)
@@ -38,9 +43,12 @@ if input == 'b':
     print(y)
     print("# Betweenness centrality:" + str(bet_cen))
     for node in G:
-        if node == 0:
+        if bet_cen[node] == bet_cen[y]:
             color_map.append('blue')
-        else: color_map.append('red')
+            node_sizes.append(750)
+        else:
+            color_map.append('red')
+            node_sizes.append(250)
 
 if input == 'c':
     clo_cen = nx.closeness_centrality(G, distance="weight")
@@ -48,13 +56,16 @@ if input == 'c':
     print(z)
     print("# Closeness centrality:" + str(clo_cen))
     for node in G:
-        if node == z:
+        if clo_cen[node] == clo_cen[z]:
             color_map.append('blue')
-        else: color_map.append('red')
+            node_sizes.append(750)
+        else:
+            color_map.append('red')
+            node_sizes.append(250)
 
 pos = nx.get_node_attributes(G, 'pos')
-nx.draw(G,pos, with_labels=True, node_color=color_map)
+nx.draw(G, pos, node_size = node_sizes, with_labels=True, node_color=color_map)
 labels = nx.get_edge_attributes(G, 'weight')
-nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+nx.draw_networkx_edge_labels(G, pos, node_size = node_sizes, edge_labels=labels)
 plt.savefig("path.png")
 plt.show()
