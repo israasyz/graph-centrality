@@ -82,31 +82,26 @@ long double * brandes(list< pair<int, int> > *adj,int n){
             S.push(v);
             
             //foreach neighbor w of v
-			// 'it' is used to get all adjacent vertices of a vertex 
-			list< iPair >::iterator it; 
-		
-			for (it = adj[v].begin(); it != adj[v].end(); ++it) 
-			{
-				w = (*it).first; 
+	    // 'it' is used to get all adjacent vertices of a vertex 
+            list< iPair >::iterator it; 
+            for (it = adj[v].begin(); it != adj[v].end(); ++it){ 
+		w = (*it).first; 
                 int weight = (*it).second;
                 
                 if(d[w] > ( d[v] + weight)){
-                    //enqueue w in Q
-            		
+			
                     d[w] = d[v] + weight; 
-                    Q.push(make_pair(d[w],w));
-                    
-					
-                }
+		    //enqueue w in Q	
+                    Q.push(make_pair(d[w],w));	
+                 }
                 //shortest path to w via v?
                 if(d[w] == (d[v] + weight)){
+			
                     sigma[w] += sigma[v];
                     //append V in P[w]
-                    P[w].push_back(v);
-                    
+                    P[w].push_back(v); 
                 }
             }
-
         }
         //delta[v] = 0, for each node in graph
         for(i=0; i < n_nodes; i++){
