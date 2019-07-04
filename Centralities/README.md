@@ -1,6 +1,40 @@
+*Closeness Algorithm*
+```
+Algortihm: Sequential algorithm for computing closeness centrality in a weighted graph using Dijkstra's algorithm
+```
+```
+Input: Graph G, a weight function c(u, v) returning 
+the weight of an edge from u → v and a starting vertex S
+Output: ∀ v reachable from S, dist[u] is set to the distance from S to v
+
+function dijkstra(G, s):
+1  ∀ t ∈ V : dist[t] ← ∞;
+2  ∀ t ∈ V : prev[t] = null; // Initialize previous pointers to null
+3  dist[s] ← 0; // Initialize distance decorations
+4  P Q ← empty priority queue which returns
+   elements in non-decreasing order by dist;
+5  while PQ not empty do
+6  | dequeue v ← P Q;
+7  | foreach neighbor w of v do	//each edge coming out of u
+8  | | if dist[v] + c(v, w) < dist[w] then
+9  | | | dist[w] = dist[v] + c(v, w);
+10 | | | w.prev = v // Maintain pointers for path
+11 | | | enqueue w → P Q;
+   | | |_
+   | |_
+   |_
+ 
+12 n ← number of vertices V of graph G
+13 foreach s ∈ V do
+14 | sum ← dijkstra(G, s):
+15 | CC[s] = (n-1)/sum;
+   |_
+   
+```
+*Betweeness Algorithm* 
 ```
 Algorithm: Sequential algorithm for computing betweenness centrality in a weighted graph using
-Brandes’ technique for aggregating dependencies
+Brandes’ technique for aggregating dependencies [1]
 ```
 ```
 Input: Graph G, a weight function c(u, v) returning
@@ -39,3 +73,6 @@ Output: ∀ v ∈ V : CB[v] the betweenness centrality
    | |_
    |_
 ```
+References
+------------------
+[1] Nick Edmonds, Torsten Hoefler, and Andrew Lumsdaine: A Space-Efficient Parallel Algorithm for Computing Betweenness Centrality in Distributed Memory.
