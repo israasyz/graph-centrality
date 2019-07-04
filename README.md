@@ -8,7 +8,6 @@ pip install networkx
 ```
 ## Optional Packages
 #### Some packages like [Matplotlib](https://matplotlib.org/) _which provides flexible drawing of graphs_ provides additional functionality.
-#### Some packages like [Matplotlib](https://matplotlib.org/) *which provides flexible drawing of graphs* provides additional functionality.
 #### To install _**networkx**_ and all optional packages, do:
 ```bash
 pip install networkx[all]
