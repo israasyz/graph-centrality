@@ -1,6 +1,7 @@
 *Closeness Algorithm*
 ```
-Algortihm: Sequential algorithm for computing closeness centrality in a weighted graph using Dijkstra's algorithm
+Algortihm: Sequential algorithm for computing closeness centrality in a weighted graph using 
+Dijkstra's algorithm
 ```
 ```
 Input: Graph G, a weight function c(u, v) returning 
