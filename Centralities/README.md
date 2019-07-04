@@ -77,3 +77,5 @@ Output: ∀ v ∈ V : CB[v] the betweenness centrality
 References
 ------------------
 [1] Nick Edmonds, Torsten Hoefler, and Andrew Lumsdaine: A Space-Efficient Parallel Algorithm for Computing Betweenness Centrality in Distributed Memory.
+
+[2] [MIT](https://www.cl.cam.ac.uk/teaching/1617/MLRD/handbook/brandes.pdf) Lecture notes on Brandes algorithm.
