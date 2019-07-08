@@ -35,7 +35,7 @@ function dijkstra(G, s):
 *Betweeness Algorithm* 
 ```
 Algorithm: Sequential algorithm for computing betweenness centrality in a weighted graph using
-Brandes’ technique for aggregating dependencies [1]
+Brandes’ technique [1] for aggregating dependencies [2]
 ```
 ```
 Input: Graph G, a weight function c(u, v) returning
@@ -76,6 +76,7 @@ Output: ∀ v ∈ V : CB[v] the betweenness centrality
 ```
 References
 ------------------
-[1] Nick Edmonds, Torsten Hoefler, and Andrew Lumsdaine: A Space-Efficient Parallel Algorithm for Computing Betweenness Centrality in Distributed Memory.
+[1] Lecture [notes](https://www.cl.cam.ac.uk/teaching/1617/MLRD/handbook/brandes.pdf) on Brandes algorithm.
 
-[2] Lecture [notes](https://www.cl.cam.ac.uk/teaching/1617/MLRD/handbook/brandes.pdf) on Brandes algorithm.
+[2] Nick Edmonds, Torsten Hoefler, and Andrew Lumsdaine: A Space-Efficient Parallel Algorithm for Computing Betweenness Centrality in Distributed Memory.
+
