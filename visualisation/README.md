@@ -1,5 +1,4 @@
 <p align="center">
-<img src="http://imgs.xkcd.com/comics/git.png" width="330" title="git.png">
+<img src="https://github.com/israasyz/graph-centrality/blob/visualization/path.png" width="900" title="path.png">
 </p>
 
-*Do not do as stick man suggests!*
